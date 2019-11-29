@@ -51,6 +51,7 @@ main {
 .h,
 .m,
 .s {
+  padding: 0 10px;
   text-align: center;
 }
 
@@ -83,8 +84,14 @@ main {
   .clock-container {
     height: 20vw;
   }
-  
+
   .clock {
     height: 16vw;
+  }
+
+  .h,
+  .m,
+  .s {
+    margin-top: 15%;
   }
 }
