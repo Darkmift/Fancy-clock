@@ -7,16 +7,18 @@ function zero(num) {
 }
 
 async function newTime(zone) {
-	var timeApi = await getHours();
-	var fetchHour = timeApi[0] || undefined;
-	var fetchMinutes = timeApi[1] || undefined;
+	var timeApi = (await getHours()) || [ undefined, undefined ];
+	var fetchHour = timeApi[0];
+	var fetchMinutes = timeApi[1];
 
 	var d = new Date();
 	var hours = fetchHour || d.getUTCHours();
-	var minutes = fetchMinutes || d.getMinutes();
+    var minutes = fetchMinutes || d.getMinutes();
 
 	if (hours != fetchHour || fetchMinutes != minutes) {
-		$('.errorMsg').html(`api time:${fetchHour}:${fetchMinutes}&nbsp;&nbsp;||&nbsp;&nbsp;server time:${hours}:${minutes}`).show();
+		$('.errorMsg')
+			.html(`api time:${fetchHour}:${fetchMinutes}&nbsp;&nbsp;||&nbsp;&nbsp;server time:${hours}:${minutes}`)
+			.show();
 	} else {
 		$('.errorMsg').html('Error Fetching time').hide();
 	}
@@ -48,7 +50,7 @@ const getHours = async () => {
 	var time;
 	var error = null;
 	try {
-		const query = await fetch('http://worldtimeapi.org/api/timezone/Europe/London.json');
+		const query = await fetch('https://worldtimeapi.org/api/timezone/Europe/London.json');
 
 		if (query.status !== 200) {
 			error = query;
