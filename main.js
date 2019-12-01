@@ -16,6 +16,7 @@ const zones = [
 	{ city: 'TB', offset: 4 },
 	{ city: 'LA', offset: -8 },
 	{ city: 'PH', offset: -7 },
+	{ city: 'DA', offset: -6 },
 ];
 
 setInterval(() => {
