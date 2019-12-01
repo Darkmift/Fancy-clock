@@ -16,7 +16,7 @@ body {
   display: grid;
   grid-template-rows: 5% auto 5%;
   grid-template-columns: 2% auto 2%;
-  font: 300 6vw "Lato", sans-serif;
+  font: 300 10vw "Lato", sans-serif;
   color: #777;
   background: #eee;
 }
@@ -28,6 +28,7 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   column-gap: 2vw;
+  row-gap: 8vw;
 }
 
 .clock-container {
@@ -45,14 +46,20 @@ main {
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  height: 8vw;
+  /* height: 8vw;
+  width: 12vw; */
 }
 
 .h,
 .m,
-.s {
+.s,
+.period {
   padding: 0 10px;
   text-align: center;
+}
+
+.period {
+  margin-top: -15px;
 }
 
 .tz {
@@ -61,11 +68,23 @@ main {
   font: 600 4vw "Courier New", sans-serif;
 }
 
-.h:after,
-.m:after {
+.errorMsg {
+  font: 600 1vw "Courier New", sans-serif;
+  text-align: center;
+  grid-column-start: 2;
+  background-color: rgb(218, 126, 126);
+  height: 2vw;
+  line-height: 2vw;
+  border-radius: 4px;
+}
+
+/* 
+.h:after
+.m:after 
+  {
   content: ":";
   padding: 10px;
-}
+} */
 
 
 @media screen and (max-width: 850px) {
